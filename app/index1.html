@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<select ng-if="prop.groups" class="form-control input-sm ng-pristine ng-valid ng-scope ng-touched" ng-model="json[key]"
+        ng-change="selectChange(json, key)"
+        ng-options="(prop.dict[value] || value) group by groupMapping[value] for value in groupItems">
+    <optgroup label="默认">
+        <option label="无" value="string:none" selected="selected">无</option>
+    </optgroup>
+    <optgroup label="强调">
+        <option label="弹跳" value="string:bounce">弹跳</option>
+        <option label="闪烁" value="string:flash">闪烁</option>
+        <option label="脉动" value="string:pulse">脉动</option>
+        <option label="橡皮圈" value="string:rubberBand">橡皮圈</option>
+        <option label="摇动" value="string:shake">摇动</option>
+        <option label="摆动" value="string:swing">摆动</option>
+        <option label="波动" value="string:tada">波动</option>
+        <option label="晃动" value="string:wobble">晃动</option>
+        <option label="心跳" value="string:heartbeat">心跳</option>
+        <option label="上移" value="string:slideUp">上移</option>
+        <option label="下移" value="string:slideDown">下移</option>
+        <option label="扩张" value="string:scaleUp">扩张</option>
+        <option label="收缩" value="string:scaleDown">收缩</option>
+    </optgroup>
+    <optgroup label="弹现">
+        <option label="弹动出现" value="string:bounceIn">弹动出现</option>
+        <option label="向下弹入" value="string:bounceInDown">向下弹入</option>
+        <option label="从左弹入" value="string:bounceInLeft">从左弹入</option>
+        <option label="从右弹入" value="string:bounceInRight">从右弹入</option>
+        <option label="向上弹入" value="string:bounceInUp">向上弹入</option>
+    </optgroup>
+    <optgroup label="弹出">
+        <option label="弹动离开" value="string:bounceOut">弹动离开</option>
+        <option label="向下弹出" value="string:bounceOutDown">向下弹出</option>
+        <option label="向左弹出" value="string:bounceOutLeft">向左弹出</option>
+        <option label="向右弹出" value="string:bounceOutRight">向右弹出</option>
+        <option label="向上弹出" value="string:bounceOutUp">向上弹出</option>
+    </optgroup>
+    <optgroup label="渐现">
+        <option label="渐现" value="string:fadeIn">渐现</option>
+        <option label="向下渐现" value="string:fadeInDown">向下渐现</option>
+        <option label="大幅向下渐现" value="string:fadeInDownBig">大幅向下渐现</option>
+        <option label="从左渐现" value="string:fadeInLeft">从左渐现</option>
+        <option label="大幅从左渐现" value="string:fadeInLeftBig">大幅从左渐现</option>
+        <option label="从右渐现" value="string:fadeInRight">从右渐现</option>
+        <option label="大幅从右渐现" value="string:fadeInRightBig">大幅从右渐现</option>
+        <option label="向上渐现" value="string:fadeInUp">向上渐现</option>
+        <option label="大幅向上渐现" value="string:fadeInUpBig">大幅向上渐现</option>
+    </optgroup>
+    <optgroup label="渐隐">
+        <option label="渐隐" value="string:fadeOut">渐隐</option>
+        <option label="向下渐隐" value="string:fadeOutDown">向下渐隐</option>
+        <option label="大幅向下渐隐" value="string:fadeOutDownBig">大幅向下渐隐</option>
+        <option label="向左渐隐" value="string:fadeOutLeft">向左渐隐</option>
+        <option label="大幅向左渐隐" value="string:fadeOutLeftBig">大幅向左渐隐</option>
+        <option label="向右渐隐" value="string:fadeOutRight">向右渐隐</option>
+        <option label="大幅向右渐隐" value="string:fadeOutRightBig">大幅向右渐隐</option>
+        <option label="向上渐隐" value="string:fadeOutUp">向上渐隐</option>
+        <option label="大幅向上渐隐" value="string:fadeOutUpBig">大幅向上渐隐</option>
+    </optgroup>
+    <optgroup label="翻转">
+        <option label="翻转" value="string:flip">翻转</option>
+        <option label="横向翻入" value="string:flipInX">横向翻入</option>
+        <option label="纵向翻入" value="string:flipInY">纵向翻入</option>
+        <option label="横向翻出" value="string:flipOutX">横向翻出</option>
+        <option label="纵向翻出" value="string:flipOutY">纵向翻出</option>
+    </optgroup>
+    <optgroup label="快速">
+        <option label="快速进入" value="string:lightSpeedIn">快速进入</option>
+        <option label="快速移出" value="string:lightSpeedOut">快速移出</option>
+    </optgroup>
+    <optgroup label="旋入">
+        <option label="旋转进入" value="string:rotateIn">旋转进入</option>
+        <option label="从左往下旋入" value="string:rotateInDownLeft">从左往下旋入</option>
+        <option label="从右往下旋入" value="string:rotateInDownRight">从右往下旋入</option>
+        <option label="从左往上旋入" value="string:rotateInUpLeft">从左往上旋入</option>
+        <option label="从右往上旋入" value="string:rotateInUpRight">从右往上旋入</option>
+    </optgroup>
+    <optgroup label="旋出">
+        <option label="旋转离开" value="string:rotateOut">旋转离开</option>
+        <option label="向左下旋出" value="string:rotateOutDownLeft">向左下旋出</option>
+        <option label="向右下旋出" value="string:rotateOutDownRight">向右下旋出</option>
+        <option label="向左上旋出" value="string:rotateOutUpLeft">向左上旋出</option>
+        <option label="向右上旋出" value="string:rotateOutUpRight">向右上旋出</option>
+    </optgroup>
+    <optgroup label="滑入">
+        <option label="向上滑入" value="string:slideInUp">向上滑入</option>
+        <option label="向下滑入" value="string:slideInDown">向下滑入</option>
+        <option label="从左滑入" value="string:slideInLeft">从左滑入</option>
+        <option label="从右滑入" value="string:slideInRight">从右滑入</option>
+    </optgroup>
+    <optgroup label="滑出">
+        <option label="向上滑出" value="string:slideOutUp">向上滑出</option>
+        <option label="向下滑出" value="string:slideOutDown">向下滑出</option>
+        <option label="向左滑出" value="string:slideOutLeft">向左滑出</option>
+        <option label="向右滑出" value="string:slideOutRight">向右滑出</option>
+    </optgroup>
+    <optgroup label="放大">
+        <option label="放大进入" value="string:zoomIn">放大进入</option>
+        <option label="向下放大" value="string:zoomInDown">向下放大</option>
+        <option label="从左放大" value="string:zoomInLeft">从左放大</option>
+        <option label="从右放大" value="string:zoomInRight">从右放大</option>
+        <option label="向上放大" value="string:zoomInUp">向上放大</option>
+    </optgroup>
+    <optgroup label="缩小">
+        <option label="缩小进入" value="string:exZoomSmallIn">缩小进入</option>
+        <option label="缩小离开" value="string:zoomOut">缩小离开</option>
+        <option label="向下缩小" value="string:zoomOutDown">向下缩小</option>
+        <option label="向左缩小" value="string:zoomOutLeft">向左缩小</option>
+        <option label="向右缩小" value="string:zoomOutRight">向右缩小</option>
+        <option label="向上缩小" value="string:zoomOutUp">向上缩小</option>
+    </optgroup>
+    <optgroup label="特效">
+        <option label="剥落" value="string:hinge">剥落</option>
+        <option label="翻滚进入" value="string:rollIn">翻滚进入</option>
+        <option label="翻滚离开" value="string:rollOut">翻滚离开</option>
+        <option label="向前荡入" value="string:boingInUp">向前荡入</option>
+        <option label="后下方进入" value="string:spaceInDown">后下方进入</option>
+        <option label="后上方进入" value="string:spaceInUp">后上方进入</option>
+        <option label="左边移入" value="string:swap">左边移入</option>
+        <option label="放大进入" value="string:swashIn">放大进入</option>
+        <option label="从下进入并强调" value="string:tinDownIn">从下进入并强调</option>
+        <option label="从上进入并强调" value="string:tinUpIn">从上进入并强调</option>
+        <option label="收走" value="string:holeOut">收走</option>
+        <option label="向左旋出" value="string:openDownLeftOut">向左旋出</option>
+        <option label="向右旋出" value="string:openDownRightOut">向右旋出</option>
+        <option label="向下转动" value="string:rotateDown">向下转动</option>
+        <option label="向左转动" value="string:rotateLeft">向左转动</option>
+        <option label="向右转动" value="string:rotateRight">向右转动</option>
+        <option label="向上转动" value="string:rotateUp">向上转动</option>
+        <option label="后下方退出" value="string:spaceOutDown">后下方退出</option>
+        <option label="后上方退出" value="string:spaceOutUp">后上方退出</option>
+        <option label="冲洗退出" value="string:swashOut">冲洗退出</option>
+        <option label="强调后向下退出" value="string:tinDownOut">强调后向下退出</option>
+        <option label="强调后向上退出" value="string:tinUpOut">强调后向上退出</option>
+        <option label="摇晃A" value="string:buzz-out">摇晃A</option>
+        <option label="摇晃B" value="string:buzz">摇晃B</option>
+        <option label="摇晃C" value="string:wobble-bottom">摇晃C</option>
+        <option label="摇晃E" value="string:wobble-skew">摇晃E</option>
+        <option label="摇晃C" value="string:wobble-to-bottom-right">摇晃C</option>
+        <option label="摇晃D" value="string:wobble-to-top-right">摇晃D</option>
+        <option label="水平晃动" value="string:wobble-horizontal">水平晃动</option>
+        <option label="垂直晃动" value="string:wobble-vertical">垂直晃动</option>
+        <option label="震动" value="string:shake-slow">震动</option>
+    </optgroup>
+    <optgroup label="扩展动画">
+        <option label="Q弹" value="string:exBounce">Q弹</option>
+        <option label="向右微移" value="string:exMicroRight">向右微移</option>
+        <option label="向下微移" value="string:exMicroDown">向下微移</option>
+        <option label="向左微移" value="string:exMicroLeft">向左微移</option>
+        <option label="向上微移" value="string:exMicroUp">向上微移</option>
+        <option label="来自右下" value="string:exUpLeftIn">来自右下</option>
+        <option label="来自左下" value="string:exUpRightIn">来自左下</option>
+        <option label="来自右上" value="string:exDownLeftIn">来自右上</option>
+        <option label="来自左上" value="string:exDownRightIn">来自左上</option>
+        <option label="顺时针旋转" value="string:exClockwise">顺时针旋转</option>
+        <option label="逆时针旋转" value="string:exAnticlockwise">逆时针旋转</option>
+        <option label="右侧旋风进入" value="string:twisterInUp">右侧旋风进入</option>
+        <option label="左侧旋风进入" value="string:twisterInDown">左侧旋风进入</option>
+    </optgroup>
+</select>
+</body>
+</html>
